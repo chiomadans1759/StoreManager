@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Store Manager">
+
+        <title>Attendant | Dashboard</title>        
+        
+		<link rel="icon" type="image/ico" href="images/icon.jpg"/>
+		<link rel="stylesheet" href="css\main.css" type="text/css" media="screen">	
+
+		<script src="js/main.js"></script> 
+	</head>
+
+	<body style="background-color: #e6e3e3">
+				<div class="sidenav" id="myTopnav"> 
+						<button class="menuButton" >&#9776; </button>
+						<center><img src="images/user.jpg" alt="Avatar" class="avatar"></center>							 
+						<div class="menu">
+							<a href="dashboard.html" >Dashboard</a>
+							<a href="products.html">Products</a>
+							<a href="sales.html">Sales Record</a>
+							<a href="customers.html" id ="pageActive">Customers</a> 
+						</div>
+				</div>
+				  
+				<div class="main"> 					 
+						<div class="attendantHeader"><center>STORE ATTENDANT</center></div>		
+						<div class="navbar">								 
+								<div class="dropdown">
+								  <button class="dropbtn">Attendant									 
+								  </button>
+								  <div class="dropdown-content">
+									<a href="#">My Profile</a>
+									<a href="index.html">Logout</a> 
+								  </div>
+								</div> 
+						</div>
+						
+						<div class="customerForm">
+								<form action="">
+								  <h3><center>Create New Customer</center></h3>
+								  <div class="row">
+									<div class="col-25">
+									  <label for="cname">Customer's Name</label>
+									</div>
+									<div class="col-75">
+									  <input type="text" id="cname" name="cname" placeholder="Customer name">
+									</div>
+								  </div>
+								   
+								  <div class="row">
+									<div class="col-25">
+									  <label for="country">Search Product</label>
+									</div>
+									<div class="col-75">
+									  <select id="search" name="Search">
+										<option value="australia">Classy Heeled Shoe</option>
+										<option value="canada">CM Client</option>
+										<option value="usa">LOSLANDIFEN</option>
+										<option value="usa">Ririxing</option>
+									  </select>
+									</div>
+								  </div>
+
+								  <div class="row">
+										<div class="col-25">
+										  <label for="quantity">Quantity</label>
+										</div>
+										<div class="col-75">
+										  <input type="number" id="quantity" name="quantity" placeholder="Quantity">
+										</div>
+								  </div>
+
+								  <div class="row">
+										<div class="col-25">
+										  <label for="amount">Quantity</label>
+										</div>
+										<div class="col-75">
+										  <input type="text" id="amount" name="amount" placeholder="Enter Product Price">
+										</div>
+								  </div>
+
+								  <div class="row">
+										<div class="col-25">
+										  <label for="country">Search Product</label>
+										</div>
+										<div class="col-75">
+										  <select id="search" name="Search">
+											<option value="Heeled Shoes">Heeled Shoes</option>
+											<option value="Sneakers">Sneakers</option>
+											<option value="Bags">Bags</option>
+											<option value="Perfumes">Perfumes</option>
+										  </select>
+										</div>
+									  </div>
+
+								  <div class="row">
+									<input type="submit" value="Create">
+								  </div>
+								</form>
+							  </div>
+							  
+
+				</div>
+	</body>
+</html>
