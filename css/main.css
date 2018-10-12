@@ -1,0 +1,836 @@
+
+body {font-family: Helvetica, Arial, sans-serif;}
+ 
+/*Sign In Styling Starts here*/
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color:#a13b00;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #a13b00;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #a13b00;
+}
+
+/* Center the image and style the containerForm*/
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 30%;
+    border-radius: 50%;
+    margin:10px auto;
+}
+
+.containerForm {
+    padding: 16px;
+    background-color:#f1f1f1;
+}
+
+.containerForm label{
+    color:#a13b00;
+}
+
+span.password {
+    float: right;
+    padding-top: 16px;
+}
+
+
+
+/* This is the general modal styles for all pages */
+.modal {
+    display:block;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0);  
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 10px;
+}
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto 15% auto; 
+    border: 1px solid #888;
+    width: 35%; 
+    border-radius:10px; 
+}
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media only screen and (max-width: 780px) {
+span.password {
+    display: block;
+    float:right;
+    }
+.cancelbtn {
+       width: 30%;
+    }
+.modal-content {  
+    width: 75%; 
+    height:50%; 
+    padding:0;
+}
+}
+
+
+
+
+/* Description Page starts here */
+/* Product Description Modal Box */
+.product-modal {
+    background-color: #fefefe;
+    margin: 2% auto 15% auto; 
+    border: 1px solid #888;
+    width: 60%;
+    height:auto; 
+}
+.details1 img{width:40%;
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow:hidden;
+    position:relative;
+    height:430px;
+        }
+
+.details{width:60%;
+    height:100%;
+    float: left;
+    background-size: cover;
+    overflow:hidden;
+    position:relative;
+    background-color: #fff;}
+
+.details h1, h2, h3{color:#a13b00;}
+.details h2{
+    font-weight: 800;
+    padding-bottom: 10px;
+    border-bottom:2px solid #ccc;
+        }
+.stockPrice{
+    width:100%;
+    overflow:hidden;}
+ .stockPrice h1{ 
+    float:left; 
+    padding-left: 30px;
+            }
+ .stockPrice h3{
+    float: right;
+    padding:10px 30px 10px 0;}
+.details p{
+    padding:5px 15px;
+    text-align: left;}
+
+.selection{
+    width:100%;
+    overflow:hidden;
+    font-size:20px;
+    color:#a13b00;}
+.selection .left{
+    float:left; 
+    padding-left: 30px;
+    margin:20px;
+    color:#a13b00;
+            }
+.selection .right{
+    float:right; 
+    color:#a13b00;
+    padding-right: 30px;
+    margin:20px;}  
+.selection select{ 
+    color:#a13b00;
+    height:40px;
+    border:1px solid #a13b00;
+    background-color: #e3e5e8;
+    border-radius: 6px;}  
+
+.addToCart {
+    width:100%;
+    overflow:hidden;
+    font-size:20px;
+    color:#a13b00;
+    margin:5px auto;
+            }
+.addToCart button {
+    background-color: #a13b00;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;   
+}  
+.addToCart input {
+    background-color: #e3e5e8;
+    color: #a13b00;
+    padding: 10px;
+    margin: 8px 20px;
+    border: none;
+    font-size: 20px;
+    width: 10%;   
+} 
+
+ /*The General Dashboard Styling Starts Here*/
+.sidenav {
+    height: 100%;
+    width:20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#491d03;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 0.5px solid rgb(105, 44, 2);
+}
+
+.sidenav a {
+    padding: 35px 8px 16px 36px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#pageActive{color:#fff;}
+
+.main {
+    margin-top:-10px;  
+    font-size: 2em;  
+    padding: 0px 10px;
+    width:80%;
+    float:right; 
+    height:100%;    
+}
+ 
+.main h3 {  
+    font-size: 1em;    
+}
+.attendantHeader{
+    background-color:#491d03;
+    padding-top:40px;
+    font-weight: 600;
+    color:#ccc;}
+
+/*Styling of the Navbar Collapse Menu*/
+.menuButton {
+    display:none;
+}
+
+
+/*Make the Dashboard Page Responsive*/
+@media only screen and (max-width : 600px) {
+    .menuButton {
+        display:block;
+        background-color: #491d03;
+        color: #ccc;
+        padding: 2px;
+        font-size:2em;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .sidenav{
+        position:fixed;
+        display: inline-block; 
+        height: 19.1%;
+        width:10%;  
+        top: 0;
+        left: 0;
+        border:none;
+        background-color:#491d03;
+        overflow-x: hidden;
+        padding-top: 20px; 
+    }
+    .dash{ 
+        height: 19.7%;
+    }
+    
+    .menu {
+        display: none;
+        position:fixed;
+        background-color: #f9f9f9;
+        color:#000;
+        margin-top:3%;
+        min-width: 30%;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    #pageActive{
+         color:#703403;
+         background-color:rgb(218, 214, 214);
+         font-weight:600;}
+    .menu a {
+        color: black;
+        padding: 12px 6px;
+        text-decoration: none;
+        display: block;
+        font-size:1em;
+        box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    }
+    
+    .menu a:hover {
+        color:#a13b00;
+        font-size:1.2em;
+        background-color:#ccc;}
+    
+    .sidenav:hover .menu {
+        display: block;
+    }
+    
+    .sidenav img{display:none;}
+    .footer {
+        font-size: 1em;  
+        padding-top: 15px;
+        width:100%; 
+        height:50px;
+        color:#ccc; 
+        position:absolute; 
+        bottom:0;
+        text-align: center;
+        background-color:#491d03;   
+    } 
+    .main {  
+        font-size: 2em;  
+        padding:0px;
+        width:90%; 
+        right:0;
+        top:0;
+        height:100%; 
+        margin:0;
+        overflow:hidden;
+        position:absolute;   
+    }
+    .main h3 {  
+        font-size: 1em;    
+    }
+    .dropdown .dropbtn {
+        font-size: 1em;    
+        border: none;
+        outline: none;
+        color: #ccc;
+        padding: 10px 6px 24px 6px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute; 
+    }
+    .dropdown-content a { 
+        color: black;
+        padding: 10px 6px; 
+        font-size:15px;
+    }
+     
+    .dropdown-content a:hover {
+        background-color: #ddd;
+        color:#000;
+    } 
+}
+ /*Media queries ends here*/
+
+/*code for dropdown attendant*/
+.navbar {
+    overflow: hidden;
+    background-color: #491d03;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+.dropdown {
+    float: right;
+    overflow: hidden;
+    padding-right:70px;
+}
+
+.dropdown .dropbtn {
+    font-size: 20px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px 24px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color:#a13b00;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Dashboard Grid View*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 40px;
+    background-color:rgb(228, 227, 227);
+    padding: 10px;
+  }
+  .grid-container > div {
+    background-color:#fff;
+    border: 1px solid #818181;
+    text-align: center;
+    font-size: 30px;
+    height:150px;
+    width:80%;
+    border-radius: 10px;
+    margin: 50px auto 0 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+/*Make the dashboard grid Responsive*/
+  @media screen and (max-width: 840px) {
+    
+    .grid-container { 
+        width:auto%;  
+        margin-top:8%;
+      }
+      .grid-container > div { 
+        font-size: 1em;
+        height:auto; 
+        border-radius: 10px;
+        padding:5% 10%;
+        margin:5% 2%; 
+        grid-auto-columns: max-content; 
+      }
+  }
+   
+
+  /*PRODUCT PAGE STARTS HERE*/
+  .grid-inventory {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color:rgb(228, 227, 227);
+    padding:0px;
+    margin-left:60px;
+    margin-bottom:60px;
+    width:60%;
+  }
+  .grid-inventory > div {
+    background-color:#fff;
+    border: 1px solid #703403;
+    text-align: center;
+    font-size: 30px;
+    height:70px;
+    width:130px;
+    border-radius: 10px;
+    margin: -20px auto 0 30px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .grid-inventory > div > h4{
+    color:rgb(129, 61, 5);
+    padding:5px;
+    margin:0;
+  }
+  .grid-inventory p{
+    color:rgb(63, 60, 60);
+    padding:0px;
+    margin:0;
+    font-size:17px;
+    font-weight: 300;
+  }
+  @media only screen and (max-width: 600px) {
+    .main h3 {  
+        font-size: .5em;    
+    }
+    .grid-inventory { 
+        grid-gap:2%;  
+        margin-right:5%; 
+        width:70%;
+        float:right;
+        margin:0;
+      }
+      .grid-inventory > div { 
+        font-size:.6em;
+        height:auto;
+        padding:3% 5%;
+        margin:0 0 5% 0;
+        width:auto;  
+        grid-auto-rows: max-content;
+        border-radius: 5px; 
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      }
+      .grid-inventory > div > h4{
+        color:rgb(129, 61, 5);
+        padding:2px;
+        margin:0;
+        font-size:.6em;
+      }
+      .grid-inventory p{
+        color:rgb(63, 60, 60);
+        padding:0px;
+        margin:0;
+        font-size:0.5em;
+        font-weight: 300;
+      }
+
+  } 
+     
+
+  /*Product Table Styling starts here*/
+.table {
+    padding:0;  
+    width: 90%;
+    margin: 0px 0 40px 0;
+    background-color:rgb(209, 208, 208);
+    display:table;
+    max-width: 100%; 
+    float:right;
+    overflow:hidden;
+    margin-right:30px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+ .table h3{ 
+    padding-top:30px;
+    padding-bottom:0px;}
+
+ 
+.table th{
+    background-color:#818181;
+    height:60px;
+    border:none;
+    padding:0;
+    margin:0;
+    width:auto;}
+
+.table td{
+    padding-left:10px;
+    margin:0;
+    height:100%;}
+    
+ .table tr {    
+    height:100%; 
+    font-size:0.5em;}
+ .table button {
+     font-size:1em;
+     font-weight: 400;
+    display:inline;
+    padding:5px 8px;
+    width:auto; 
+    float:right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #818181;}
+    
+ .table tr p {padding-left: 10px;}
+
+
+ .table tr img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;}
+ /*Products Media Queries design*/
+ @media only screen and (max-width: 800px) {
+    .table {  
+        margin:-20px 2% 0 0; 
+        width:100%;
+        position:relative;
+        bottom:0;
+        padding:0; 
+    } 
+   
+     
+    .table th{ 
+        font-size:.6em;
+        padding:3% 0;
+        margin:0;
+        height:auto;
+    }
+    
+    .table td{ 
+        margin:0; 
+        padding: 0; 
+        height:40px;
+        font-size:.6em;}
+        
+     .table tr { 
+         font-size:0.5em;
+        width:auto;    
+        border-bottom: 2px solid #ccc;}
+     .table button {
+         font-size:.5em;
+         font-weight: 200;
+         display:inline;
+         padding:5px; 
+         width:50px;  } 
+         
+     .table tr p {padding-left:5%;}
+    
+    
+     .table tr img{
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:0;
+        margin:0;
+        width:100%;
+        height:100%;} 
+ } 
+    /*Sales Record Print Button*/
+.print{font-size:.8em;
+        font-weight: 400;
+        display:block;
+        padding:5px 5px;
+        width:auto;
+        float:right;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right:30px;
+        background-color: #818181;
+        color:#000}
+@media only screen and (max-width: 840px) {
+  
+    .print{ 
+        font-size:.5em; 
+        margin-bottom:10%;        
+        float:right;  
+        right:0;
+      } 
+}
+
+/*CREAT CUSTOMER FORM STARTS HERE*/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 12px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=date] {
+    width: 97%;
+    padding: 12px 12px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=file] {
+    width: 97%;
+    padding: 12px 12px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=number] {
+    width: 97%;
+    padding:12px 12px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; 
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    width:auto;
+}
+
+input[type=submit] {
+    background-color: #818181;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-top: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: #999998;
+}
+/*New Customer creation sttarts here*/
+.customerForm {
+    border-radius: 5px;
+    font-size: 0.5em;
+    font-weight: 400;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 40%;
+    margin:20px auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 840px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin:0;
+    }
+    .customerForm { 
+        margin:5% 0; 
+        width: 80%;         
+        font-size: 0.4em;
+    }
+    .customerForm h3 {        
+        font-size:1.5em;
+        margin:0;
+    }
+}
+
+
+
+/*Sales Section*/
+.modalNew {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modalNew label {
+font-size:2em;
+font-weight: 400;
+}
+
+.modalNew h3 {
+    font-size:3em;
+    font-weight: 600;
+    }
+.closeSales {
+    position: absolute;
+    left: 68%;
+    top: 13%;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.closeSales:hover,
+.closeSales:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
+
+
+ 
+ 
+
+  
