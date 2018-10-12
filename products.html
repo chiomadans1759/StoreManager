@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Store Manager">
+
+        <title>Products</title>        
+        
+		<link rel="icon" type="image/ico" href="images/icon.jpg"/>
+		<link rel="stylesheet" href="css\main.css" type="text/css" media="screen">	
+
+		<script src="js/main.js"></script> 
+	</head>
+
+	<body style="background-color: #e6e3e3">
+				<div class="sidenav" id="myTopnav"> 
+						<button class="menuButton" >&#9776; </button>
+						<center><img src="images/user.jpg" alt="Avatar" class="avatar"></center>							 
+						<div class="menu">
+							<a href="dashboard.html" >Dashboard</a>
+							<a href="products.html" id ="pageActive">Products</a>
+							<a href="sales.html">Sales Record</a>
+							<a href="customers.html">Customers</a> 
+						</div>
+				</div>
+				  
+				<div class="main"> 					 
+						<div class="attendantHeader"><center>STORE ATTENDANT</center></div>		
+						<div class="navbar">								 
+								<div class="dropdown">
+								  <button class="dropbtn">Attendant									 
+								  </button>
+								  <div class="dropdown-content">
+									<a href="#">My Profile</a>
+									<a href="index.html">Logout</a> 
+								  </div>
+								</div> 
+						</div>
+						<h3 style="padding:0 0 0 40px;">Products in Stock</h3>
+						<div class="grid-inventory">
+								<div><h4>37</h4><p>Heeled Shoes</p></div>
+								<div><h4>16</h4><p>Bags</p></div>
+								<div><h4>24</h4><p>Sneakers</p></div>
+								<div><h4>11</h4><p>Perfume</p></div>   
+						</div>	
+						
+						
+						<table class="table"><tbody>
+							<h3 style="padding:0 0 0 40px;">Products Details<input type="text" class="input" placeholder="Search.."/></h3>
+							
+							<tr>
+								<th class="th1">Item</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Category</th>
+								<th colspan="3">Action</th>
+							</tr>
+							<tr>
+								<td><img src="images/item1.jpg"></td>
+								<td><p><strong>Classy Heeled Shoe </strong></p><p>A lady's shoe is her confidence</p></td>
+								<td>$55.70</td>						
+								<td>11</td>
+								<td>Heeled Shoes</td>
+								<td><button>Add to cart</button></td>
+								 							</tr>
+							<tr>
+									<td><img src="images/item2.jpg"></td>
+									<td><p><strong>CM Client </strong></p><p>Smeel nice each day</p></td>
+									<td>$142.00</td>						
+									<td>20</td>
+									<td>Perfume</td>
+									<td><button>Add to cart</button></td> 
+							</tr>
+							<tr>
+									<td><img src="images/item3.jpg"></td>
+									<td><p><strong>LOSLANDIFEN </strong></p><p>Lion Skined pincho ladies bag</p></td>
+									<td>$33.90</td>						
+									<td>4</td>
+									<td>Bag</td>
+									<td><button>Add to cart</button></td>
+									 
+							</tr>
+							<tr>
+									<td><img src="images/item4.jpg"></td>
+									<td><p><strong>Ririxing  </strong></p><p>Ladies Classic Slip-On Chunky Heel Round</p></td>
+									<td>$16.00</td>						
+									<td>9</td>
+									<td>Sneakers</td>
+									<td><button>Add to cart</button></td>
+									 
+							</tr>
+							<tr>
+									<td><img src="images/item5.jpg"></td>
+									<td><p><strong>Classy Heeled Shoe </strong></p><p>A lady's shoe is her confidence</p></td>
+									<td>$55.70</td>						
+									<td>11</td>
+									<td>Heeled Shoes</td>
+									<td><button>Add to cart</button></td>
+									 
+								</tr>
+						</tbody></table>
+				</div>
+
+
+
+
+				
+
+		  
+
+
+		<script>
+// Get the modal
+var modal = document.getElementById('id01');
+var modal = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+	</body>
+</html>
