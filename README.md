@@ -1,5 +1,5 @@
 Click the link below to visit the page on github
-https://github.com/chiomadans1759/Store-Manager
+https://github.com/chiomadans1759/StoreManager
 
 
 # Store-Manager
