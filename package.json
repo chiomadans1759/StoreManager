@@ -9,8 +9,7 @@
     "start": "npm run build && node es5_server/app.js",
     "start:dev": "npm run build && nodemon es5_server/app.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec es5_server/test --exit",
-    "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls",
-    
+    "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls"
   },
   "author": "chioma okpala",
   "license": "MIT",
@@ -28,10 +27,12 @@
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "rimraf": "^2.6.2"
   }
 }
