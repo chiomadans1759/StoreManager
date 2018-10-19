@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Store Manager">
+
+        <title>Admin | Dashboard</title>        
+        
+		<link rel="icon" type="image/ico" href="images/icon.jpg"/>
+		<link rel="stylesheet" href="css\main.css" type="text/css" media="screen">	
+
+		<script src="js/main.js"></script> 
+	</head>
+
+	<body style="background-color: #e6e3e3">
+				<div class="sidenav dash" id="myTopnav"> 
+						<button class="menuButton" >&#9776; </button>
+						<center><img src="images/user.jpg" alt="Avatar" class="avatar"></center>							 
+						<div class="menu">
+							<a href="dashboardadmin.html" >Dashboard</a>
+							<a href="productsadmin.html">Products</a>
+							<a href="salesadmin.html" >Sales Record</a>
+							<a href="customers.html">Customers</a> 							
+							<a href="attendantsadmin.html" id ="pageActive">Manage Attendants</a>
+						</div>
+				</div>
+				  
+				<div class="main"> 					 
+						<div class="attendantHeader"><center>ADMIN</center></div>		
+						<div class="navbar">								 
+								<div class="dropdown">
+								  <button class="dropbtn">Admin								 
+								  </button>
+								  <div class="dropdown-content">
+									<a href="#">My Profile</a>
+									<a href="https://chiomadans1759.github.io/StoreManager/.html">Logout</a> 
+								  </div>
+								</div> 
+						</div>
+						
+						<table class="table manageAttendants"><tbody>
+							<h3 style="padding:0 0 0 40px;">Customer's Checkout</h3>	 
+							<button class="print">Checkout</button>
+							<tr>
+								<th class="th1">Item</th>
+								<th>Product Name</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Category</th> 
+							</tr>
+
+							<tr>
+										<td><img src="images/item2.jpg"></td>
+										<td><p><strong>CM Client </strong></p><p>Smeel nice each day</p></td>
+										<td>$142.00</td>						
+										<td>20</td>
+										<td>Perfume</td> 
+								</tr>
+								<tr style="font-size:20px;">
+									<th style="text-align:left; padding-left:30px;" colspan="4">Total Amount</th>
+									<th>57</th> 
+							</tr>
+							 
+						</tbody></table>
+				</div>
+ 
+				<div class="footer">Powered By Andela</div>
+
+	</body>
+</html>
