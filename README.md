@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chiomadans1759/StoreManager.svg?branch=development)](https://travis-ci.org/chiomadans1759/StoreManager)
+
 Click the link below to visit the page on github
 https://chiomadans1759.github.io/StoreManager/
 
