@@ -4,9 +4,10 @@
   "description": "this is the store api",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
-    "build": "rimraf es5_server/ && babel ./ --out-dir es5_server/ --ignore ./node_modules,./.babelrc,./npm-debug.log --copy-files",
-    "start": "npm run build && nodemon server/es5_server"
+    "test": "mocha es5_server/test --exit 10000",
+    "build": "rimraf es5_server/ && babel ./server --out-dir es5_server/ --ignore ./node_modules,./.babelrc,./npm-debug.log --copy-files",
+    "start": "npm run build && node es5_server/app.js",
+    "start:dev": "npm run build && nodemon es5_server/app.js"
   },
   "author": "chioma okpala",
   "license": "MIT",
