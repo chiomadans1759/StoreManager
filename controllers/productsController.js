@@ -36,6 +36,19 @@ module.exports = {
             error:true
         })
     },
+	 //Update a product in the products hash 
+    UpdateAProduct: (req,res)=>{
+
+        let productId = req.params.id; 
+        if( products[productId]){
+            res.send( products[productId]);
+        }
+
+        res.send({
+            message:`product not found having the id of ${productId}`,
+            error:true
+        })
+    },
 	 //Delete a product from the products hash using the productId
     deleteAProduct: function(req, res){
         var productId = req.params.id; 

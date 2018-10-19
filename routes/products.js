@@ -23,4 +23,8 @@ Router.get('/products/:id', (req,res)=>{
 Router.delete('/products/:id', (req,res)=>{
     ProductsController.deleteAProduct(req,res);
 })
+//Update A product  
+Router.put('/products/:id', (req,res)=>{
+    ProductsController.UpdateAProduct(req,res);
+})
 module.exports = Router;
