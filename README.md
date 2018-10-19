@@ -4,6 +4,8 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/78cbe16f398eed519956/test_coverage)](https://codeclimate.com/github/chiomadans1759/StoreManager/test_coverage)
 
+[![Coverage Status](https://coveralls.io/repos/github/chiomadans1759/StoreManager/badge.svg)](https://coveralls.io/github/chiomadans1759/StoreManager)
+
 
 Click the link below to visit the page on github
 https://chiomadans1759.github.io/StoreManager/
