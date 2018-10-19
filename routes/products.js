@@ -19,4 +19,8 @@ Router.get('/products', (req,res)=>{
 Router.get('/products/:id', (req,res)=>{
     ProductsController.findAProduct(req,res);
 }) 
+//Delete A product  
+Router.delete('/products/:id', (req,res)=>{
+    ProductsController.deleteAProduct(req,res);
+})
 module.exports = Router;

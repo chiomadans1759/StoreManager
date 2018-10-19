@@ -36,6 +36,22 @@ module.exports = {
             error:true
         })
     },
+	 //Delete a product from the products hash using the productId
+    deleteAProduct: function(req, res){
+        var productId = req.params.id; 
+        if( products[productId]){
+            delete products[productId] 
+            res.send(`product with the id of ${productId} deleted successfully`)
+        }
+
+        res.send({
+
+            message:`there is no product with id of ${productId}`,
+            error:true
+
+        })
+
+    }
 
     }
 }
