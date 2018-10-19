@@ -23,7 +23,19 @@ module.exports = {
 
     },
     
-     
+     //Find a product from the products hash using the productId
+    findAProduct: function(req,res){
+
+        var productId = req.params.id; 
+        if( products[productId]){
+            res.json( products[productId]);
+        }
+
+        res.json({
+            message:` There is no product with the id of ${productId}`,
+            error:true
+        })
+    },
 
     }
 }

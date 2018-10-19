@@ -10,5 +10,13 @@ Router.post('/products', (req,res)=>{
     ProductsController.addProduct(req,res);
 });
 
- 
+ //Fetch all products 
+Router.get('/products', (req,res)=>{
+    ProductsController.fetchAllProducts(req,res);
+})
+
+//Fetch a product
+Router.get('/products/:id', (req,res)=>{
+    ProductsController.findAProduct(req,res);
+}) 
 module.exports = Router;
