@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/chiomadans1759/StoreManager.svg?branch=development)](https://travis-ci.org/chiomadans1759/StoreManager)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/78cbe16f398eed519956/maintainability)](https://codeclimate.com/github/chiomadans1759/StoreManager/maintainability)
+
 Click the link below to visit the page on github
 https://chiomadans1759.github.io/StoreManager/
 
