@@ -2,6 +2,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/78cbe16f398eed519956/maintainability)](https://codeclimate.com/github/chiomadans1759/StoreManager/maintainability)
 
+<a href="https://codeclimate.com/github/chiomadans1759/StoreManager/test_coverage"><img src="https://api.codeclimate.com/v1/badges/78cbe16f398eed519956/test_coverage" /></a>
+
 Click the link below to visit the page on github
 https://chiomadans1759.github.io/StoreManager/
 
