@@ -11,7 +11,15 @@ module.exports = {
     },
 
 
-     
+    //Add a Sale Record to the sales hash 
+    addSale: (req,res) => {        
+        req.body.id = sale_id;
+        let saleId = sale_id++; 
+        sales[saleId] = req.body;         
+
+    },
+    
+    
  
    
 }

@@ -10,6 +10,12 @@ Router.post('/sales', (req,res)=>{
     SalesController.addSale(req,res);
 });
 
+//Fetch all Sales 
+Router.get('/sales', (req,res)=>{
+    SalesController.fetchAllSales(req,res);
+})
+
+ 
  
 
 module.exports = Router;
