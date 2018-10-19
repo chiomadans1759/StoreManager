@@ -15,7 +15,10 @@ Router.get('/sales', (req,res)=>{
     SalesController.fetchAllSales(req,res);
 })
 
- 
+//Fetch a Single product
+Router.get('/sales/:id', (req,res)=>{
+    SalesController.findASale(req,res);
+}) 
  
 
 module.exports = Router;

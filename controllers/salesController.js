@@ -19,7 +19,19 @@ module.exports = {
 
     },
     
-    
+    //Find a Sale Record from the sales hash using the saleId
+    findASale: (req,res) => {
+
+        let saleId = req.params.id; 
+        if( sales[saleId]){
+            res.json( sales[saleId]);
+        }
+
+        res.json({
+            message:` There is no sale record with the id of ${saleId}`,
+            error:true
+        })
+    }
  
    
 }
