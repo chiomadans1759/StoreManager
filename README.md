@@ -26,7 +26,7 @@ https://storemanagerandela.herokuapp.com/
 ### Prerequisites to use this api
 
 1. Postman
-2. Any web browser
+2. Any web browser (Preferably Chrome)
 
 ### Prerequisites to get this api running on your local system
 
