@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha es5_server/test --exit 10000",
     "build": "rimraf es5_server/ && babel ./server --out-dir es5_server/ --ignore ./node_modules,./.babelrc,./npm-debug.log --copy-files",
-    "start": "npm run build && node es5_server/app.js",
+    "start": "node es5_server/app.js",
     "start:dev": "npm run build && nodemon es5_server/app.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec es5_server/test --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls"
