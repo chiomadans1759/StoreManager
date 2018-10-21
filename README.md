@@ -73,8 +73,13 @@ run test using 'npm test'.
 - Eslint 
 
 ### Testing Framework
-- Mocha
+- Mocha     - JavaScript Test Framework for API Tests
+- Chai      - TDD/BDD Assertion Library for Node
+- Chai HTTP - Addon plugin for the Chai Assertion Library
 
+### Compiler
+Babel - Compiler for ES6 Javascript
+ 
 ## Built With
 
 - NodeJs-EXPRESS: Node.js is a javascript runtime built on Chrome's V8 javascript engine.
