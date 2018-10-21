@@ -42,7 +42,7 @@ app.use('/api/v1', _products2.default);
 app.use('/api/v1', _sales2.default);
 
 //get the port from the process env 
-var PORT = 9000;
+var PORT = process.env.PORT || 9000;
 app.listen(PORT, function () {
     console.log('server is listening for requests at port ' + PORT);
 });

@@ -35,7 +35,7 @@ app.use('/api/v1', salesRoute);
 
 
 //get the port from the process env 
-const PORT = 9000
+const PORT = process.env.PORT || 9000
 app.listen(PORT, () => {
     console.log(`server is listening for requests at port ${PORT}`);
 })
