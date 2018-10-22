@@ -13,7 +13,7 @@ stock.
 
 # Github Pages
 
-[Index](https://chiomadans1759.github.io/StoreManager/l) |
+[Index](https://chiomadans1759.github.io/StoreManager/) |
 [Dashboard](https://chiomadans1759.github.io/StoreManager/UI/dashboardadmin.html) 
 
 
