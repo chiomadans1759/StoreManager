@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html>
-	<head> 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Store Manager">
-
-        <title>Admin | Dashboard</title>        
-        
-		<link rel="icon" type="image/ico" href="images/icon.jpg"/>
-		<link rel="stylesheet" href="css\main.css" type="text/css" media="screen">	
-
-		<script src="js/main.js"></script> 
-	</head>
-
-	<body style="background-color: #e6e3e3">
-				<div class="sidenav dash" id="myTopnav"> 
-						<button class="menuButton" >&#9776; </button>
-						<center><img src="images/user.jpg" alt="Avatar" class="avatar"></center>							 
-						<div class="menu">
-							<a href="dashboardadmin.html" >Dashboard</a>
-							<a href="productsadmin.html">Products</a>
-							<a href="salesadmin.html" id ="pageActive">Sales Record</a>
-							<a href="customers.html">Customers</a> 							
-							<a href="customercart.html" >Customer's Cart</a>
+		<head> 
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta name="description" content="Store Manager">
+		
+				<title>Dashboard</title>        
+				
+				<link rel="icon" type="image/ico" href="images/icon.jpg"/>
+				<link rel="stylesheet" href="css\main.css" type="text/css" media="screen">
+				<link rel="stylesheet" href="css\css\css\all.min.css" type="text/css">	
+				
+				<link rel="stylesheet" href="css/font-awesome.css">
+				<script src="js/main.js"></script> 
+				
+			</head>
+		
+			<body style="background-color: #e6e3e3">
+						<div class="sidenav dash" id="myTopnav"> 
+								<button class="menuButton" >&#9776; </button>
+								<center><img src="images/user.jpg" alt="Avatar" class="avatar"></center> 
+								<div class="attendantHeader"><center>Okpala Chioma</center></div>
+								<div class="attendantHeader2"><center>Admin</center></div>						 
+								<div class="menu">
+									<a href="dashboardadmin.html" >Dashboard</a>
+									<a href="productsadmin.html">Products</a>
+									<a href="salesadmin.html" id ="pageActive">Sales Record</a>
+									<a href="customers.html">Customers</a>							
+									<a href="customercart.html" >Customer's Cart</a> 
+								</div>
 						</div>
-				</div>
-				  
-				<div class="main"> 					 
-						<div class="attendantHeader"><center>ADMIN</center></div>		
-						<div class="navbar">								 
-								<div class="dropdown">
-								  <button class="dropbtn">Admin								 
-								  </button>
-								  <div class="dropdown-content">
-									<a href="#">My Profile</a>
-									<a href="index.html">Logout</a> 
-								  </div>
-								</div> 
-						</div>
+						  
+						<div class="main"> 
+							<div class="navbar">								 
+										<div class="dropdown">
+										  <button class="dropbtn icon login"><i class="fas fa-user-alt"></i> Profile <i class="fas fa-caret-down"></i>								 
+										  </button>
+										  <div class="dropdown-content">
+											<a href="#">My Profile</a>
+											<a href="index.html">Logout</a> 
+										  </div>
+										</div> 
+								</div>
 						
 						<table class="table"><tbody>
 							<h3 style="padding:0 0 0 40px;">Sales Record</h3>							
 							<button class="print">Print</button>
+							<input type="text" style="width:89%; margin-left:40px;" id="inputProduct" placeholder="Search.."/>
 							<tr>
 								<th>Date</th>
 								<th>Attendant</th>
@@ -78,6 +83,7 @@
 							 
 						</tbody></table>
 				</div>
+				<div class="footer">Powered By Andela</div>
  
 	</body>
 </html>
