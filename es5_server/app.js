@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -34,8 +38,8 @@ app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
 
 //define routes 
-app.get('/', function (req, res) {
-    res.json({ name: 'chioma', role: 'backend engineer' });
+app.get("/", function (req, res) {
+    return res.json({ message: "Welcome to Store Manager!" });
 });
 
 app.use('/api/v1', _products2.default);
@@ -47,4 +51,5 @@ app.listen(PORT, function () {
     console.log('server is listening for requests at port ' + PORT);
 });
 
-module.exports = app; //for testing
+//module.exports = app //for testing 
+exports.default = app;

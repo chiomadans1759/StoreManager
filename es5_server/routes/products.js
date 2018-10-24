@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -16,28 +20,52 @@ var Router = _express2.default.Router();
 
 
 //add a product 
-Router.post('/products', function (req, res) {
-    _productsController2.default.addProduct(req, res);
-});
+Router.post('/products', _productsController2.default.addProduct);
 
 //Fetch all products 
-Router.get('/products', function (req, res) {
-    _productsController2.default.fetchAllProducts(req, res);
-});
+Router.get('/products', _productsController2.default.fetchAllProducts);
 
-//Fetch a product
-Router.get('/products/:id', function (req, res) {
-    _productsController2.default.findAProduct(req, res);
-});
+//Fetch a Single product
+Router.get('/products/:id', _productsController2.default.findAProduct);
 
-//Update A product  
-Router.put('/products/:id', function (req, res) {
-    _productsController2.default.UpdateAProduct(req, res);
-});
+//Update a Single product
+Router.put('/products/:id', _productsController2.default.UpdateAProduct);
 
-//Delete A product  
-Router.delete('/products/:id', function (req, res) {
-    _productsController2.default.deleteAProduct(req, res);
-});
+//Delete a Single product
+Router.delete('/products/:id', _productsController2.default.deleteAProduct);
 
-module.exports = Router;
+exports.default = Router;
+
+// // const express = require('express');
+// import express from 'express'
+// const Router = express.Router();
+// // const ProductsController = require('../controllers/productsController');
+// import ProductsController from '../controllers/productsController';
+
+
+// //add a product 
+// Router.post('/products', (req,res)=>{  
+//     ProductsController.addProduct(req,res);
+// });
+
+// //Fetch all products 
+// Router.get('/products', (req,res)=>{
+//     ProductsController.fetchAllProducts(req,res);
+// })
+
+// //Fetch a product
+// Router.get('/products/:id', (req,res)=>{
+//     ProductsController.findAProduct(req,res);
+// }) 
+
+// //Update A product  
+// Router.put('/products/:id', (req,res)=>{
+//     ProductsController.UpdateAProduct(req,res);
+// })
+
+// //Delete A product  
+// Router.delete('/products/:id', (req,res)=>{
+//     ProductsController.deleteAProduct(req,res);
+// })
+
+// module.exports = Router;

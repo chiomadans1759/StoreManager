@@ -24,12 +24,19 @@ describe('Add New Product', function () {
         _chai2.default.request(_app2.default).post('/api/v1/products').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price'); 
+            done();
+        });
+    });
+    it('It should create a new product with all the properties', function (done) {
+        _chai2.default.request(_app2.default).post('/api/v1/products').send({
+            name: 'phone',
+            price: 20,
+            item: 2
+        }).end(function (err, res) {
+            res.body.product.should.have.property('name');
+            res.body.product.should.have.property('price');
+            res.body.product.should.have.property('item');
+            res.should.have.status(200);
             done();
         });
     });
@@ -40,7 +47,6 @@ describe('GET /products', function () {
         _chai2.default.request(_app2.default).get('/api/v1/products').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.length.should.be.eql(0);
             done();
         });
     });
@@ -48,9 +54,10 @@ describe('GET /products', function () {
 
 describe('Fetch A single Product', function () {
     it('It should fetch a single product', function (done) {
-        _chai2.default.request(_app2.default).get('/api/v1/products/:id').end(function (err, res) {
+        _chai2.default.request(_app2.default).get('/api/v1/products/1').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
+            console.log(res.body);
             // res.body.should.have.property('id').eql(productId);;
             // res.body.should.have.property('item');
             // res.body.should.have.property('name');
@@ -65,16 +72,17 @@ describe('Fetch A single Product', function () {
 
 describe('Update A single Product', function () {
     it('It should update a single product', function (done) {
-        _chai2.default.request(_app2.default).put('/api/v1/products/:id').end(function (err, res) {
+        _chai2.default.request(_app2.default).put('/api/v1/products/1').send({
+            name: 'Bingo',
+            price: 50,
+            item: 2
+        }).end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.should.have.property('id').eql(productId);;
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price'); 
+            res.body.updatedAProduct.should.have.property('id').eql('1');;
+            res.body.updatedAProduct.should.have.property('item');
+            res.body.updatedAProduct.should.have.property('name');
+            res.body.updatedAProduct.should.have.property('price').eql(50);
             done();
         });
     });
@@ -82,7 +90,7 @@ describe('Update A single Product', function () {
 
 describe('Delete A single Product', function () {
     it('It should Delete a single product', function (done) {
-        _chai2.default.request(_app2.default).delete('/api/v1/products/:id').end(function (err, res) {
+        _chai2.default.request(_app2.default).delete('/api/v1/products/1').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
             // res.body.should.have.property('id').eql(productId);;
@@ -99,52 +107,45 @@ describe('Delete A single Product', function () {
 
 //TESTING FOR SALES FIELDS
 
-describe('Post Sales records', function () {
-    it('It should post sales records', function (done) {
-        _chai2.default.request(_app2.default).post('/api/v1/products').end(function (err, res) {
+describe('Add New Sales Record', function () {
+    it('It should create a new sales record', function (done) {
+        _chai2.default.request(_app2.default).post('/api/v1/sales').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.should.have.property('id').eql(productId);;
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price'); 
+            done();
+        });
+    });
+    it('It should create a new sales record with all the properties', function (done) {
+        _chai2.default.request(_app2.default).post('/api/v1/sales').send({
+            name: 'phone',
+            price: 20,
+            item: 2
+        }).end(function (err, res) {
+            res.body.sale.should.have.property('name');
+            res.body.sale.should.have.property('price');
+            res.body.sale.should.have.property('item');
+            res.should.have.status(200);
             done();
         });
     });
 });
 
-describe('All Sales records', function () {
-    it('It should Fetch al sales records', function (done) {
+describe('All Sales Record', function () {
+    it('should return all sales records', function (done) {
         _chai2.default.request(_app2.default).get('/api/v1/sales').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.should.have.property('id').eql(productId);;
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price'); 
             done();
         });
     });
 });
 
-describe('Fetch a single salees record', function () {
-    it('It should Fetch a single sales record', function (done) {
-        _chai2.default.request(_app2.default).get('/api/v1/sales/:id').end(function (err, res) {
+describe('Fetch A single Sales Record', function () {
+    it('It should fetch a single Sales Record', function (done) {
+        _chai2.default.request(_app2.default).get('/api/v1/sales/1').end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            // res.body.should.have.property('id').eql(productId);;
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price');
-            // res.body.should.have.property('item');
-            // res.body.should.have.property('name');
-            // res.body.should.have.property('price'); 
+            console.log(res.body);
             done();
         });
     });
