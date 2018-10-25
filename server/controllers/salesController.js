@@ -26,7 +26,11 @@ class SalesController {
       
       
         for (let i = 0; i < sales.length; i++) {
-          
+          if (sale.name === sales[i].name) {
+            return res.status(409).json({
+              message: 'Sales Record already exist'
+            });
+          }
         } if(req.body.name && req.body.price && req.body.item) {
           sales.push(sale);
           res.status(200).json({
