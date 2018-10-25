@@ -13,7 +13,7 @@ describe('Add New Product', () => {
       chai.request(app)
           .post('/api/v1/products') 
           .end((err, res) => {
-                res.should.have.status(200);
+                res.should.have.status(422);
                 res.body.should.be.a('object');   
             done();
           });
@@ -103,7 +103,7 @@ describe('Add New Sales Record', () => {
       chai.request(app)
           .post('/api/v1/sales') 
           .end((err, res) => {
-                res.should.have.status(200);
+                res.should.have.status(422);
                 res.body.should.be.a('object');   
             done();
           });
