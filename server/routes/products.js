@@ -9,9 +9,9 @@ import ProductsController from '../controllers/productsController';
 
 //add a product 
 Router.post('/products', 
-            [   check('name').isNumeric(), 
+            [   check('name').isAlpha(), 
                 check('price').isNumeric(),
-                check('item').isNumeric()
+                check('item').isAlpha()
             ],  
             ProductsController.addProduct);
 

@@ -24,7 +24,7 @@ describe('Add New Product', () => {
             .send({
                 name: 'phone',
                 price: 20,
-                item: 2,
+                item: 'sneakers',
             })
             .end((err, res) => {
                   res.body.product.should.have.property('name');
@@ -69,7 +69,7 @@ describe('Update A single Product', () => {
           .send({
             name: 'Bingo',
             price: 50,
-            item: 2,
+            item: 'shoe',
         })
           .end((err, res) => {
                 res.should.have.status(200);
@@ -114,7 +114,7 @@ describe('Add New Sales Record', () => {
             .send({
                 name: 'phone',
                 price: 20,
-                item: 2,
+                item: "canvas",
             })
             .end((err, res) => {
                   res.body.sale.should.have.property('name');

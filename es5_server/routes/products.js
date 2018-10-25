@@ -20,7 +20,7 @@ var Router = _express2.default.Router(); // const express = require('express');
 
 
 //add a product 
-Router.post('/products', [(0, _check.check)('name').isNumeric(), (0, _check.check)('price').isNumeric(), (0, _check.check)('item').isNumeric()], _productsController2.default.addProduct);
+Router.post('/products', [(0, _check.check)('name').isAlpha(), (0, _check.check)('price').isNumeric(), (0, _check.check)('item').isAlpha()], _productsController2.default.addProduct);
 
 //Fetch all products 
 Router.get('/products', _productsController2.default.fetchAllProducts);

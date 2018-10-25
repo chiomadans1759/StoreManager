@@ -1,4 +1,5 @@
 import { validationResult } from 'express-validator/check'
+
 const sales = []
 //Sales will be an array of Sales objects
 
@@ -23,31 +24,30 @@ class SalesController {
         sale.name = req.body.name;
         sale.price = req.body.price;
         sale.item = req.body.item;
-      
-      
+        
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          return res.status(422).json({
+            status: 'Failed',
+            message: `${errors.array()[0].msg} ${errors.array()[0].value} provided for ${errors.array()[0].param}`,
+          });
+        }
+
         for (let i = 0; i < sales.length; i++) {
           if (sale.name === sales[i].name) {
             return res.status(409).json({
-              message: 'Sales Record already exist'
+              message: `A sales record with name  ${sale.name} already exist`
             });
           }
-        } if(req.body.name && req.body.price && req.body.item) {
+        }  
+
           sales.push(sale);
-          res.status(200).json({
-            message: 'New Sales Record successfully added!',
+          return res.status(200).json({
+            message: 'New Sales Record successfully created!',
             status: 'Success',
             sale: sales[saleId - 1],
             sale
           });
-        } 
-        
-        else {
-         const errors = validationResult(req);
-         return res.status(422).json({
-            status: 422,
-            message: 'Please enter all product properties'
-          });
-        }
       }
  
     //Find a Sale Record from the sales hash using the saleId
