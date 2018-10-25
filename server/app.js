@@ -3,6 +3,7 @@ import express from 'express';
 const app = express();
 
 import bodyParser from 'body-parser';
+import validator from 'express-validator';
 
 const router = express.Router();
 
@@ -23,6 +24,7 @@ app.use((req, res, next)=> {
 //use the body parser middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(validator());
 
 //define routes 
 app.get("/", (req, res) => res.json({message: "Welcome to Store Manager!"}));

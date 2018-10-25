@@ -27,6 +27,17 @@ class ProductsController{
              status: 'Success',
               product: products[productId - 1],
             });
+            req.checkBody("product.name", "Product name must be a text").isAlpha().notEmpty();
+            req.checkBody("product.price", "Product name must be a text").isNumber().notEmpty(); 
+            req.checkBody("product.item", "Product name must be a text").notEmpty(); 
+            
+                let errors = req.validationErrors();
+                if (errors) {
+                    res.send(errors);
+                    return;
+                } else {
+                    // normal processing here
+                }
     }
     
    
