@@ -6,28 +6,54 @@ import ProductsController from '../controllers/productsController';
 
 
 //add a product 
-Router.post('/products', (req,res)=>{  
-    ProductsController.addProduct(req,res);
-});
+Router.post('/products', ProductsController.addProduct);
 
 //Fetch all products 
-Router.get('/products', (req,res)=>{
-    ProductsController.fetchAllProducts(req,res);
-})
+Router.get('/products', ProductsController.fetchAllProducts);
 
-//Fetch a product
-Router.get('/products/:id', (req,res)=>{
-    ProductsController.findAProduct(req,res);
-}) 
+//Fetch a Single product
+Router.get('/products/:id', ProductsController.findAProduct);
 
-//Update A product  
-Router.put('/products/:id', (req,res)=>{
-    ProductsController.UpdateAProduct(req,res);
-})
+//Update a Single product
+Router.put('/products/:id', ProductsController.UpdateAProduct);
 
-//Delete A product  
-Router.delete('/products/:id', (req,res)=>{
-    ProductsController.deleteAProduct(req,res);
-})
+//Delete a Single product
+Router.delete('/products/:id', ProductsController.deleteAProduct);
+ 
 
-module.exports = Router;
+export default Router;
+
+
+// // const express = require('express');
+// import express from 'express'
+// const Router = express.Router();
+// // const ProductsController = require('../controllers/productsController');
+// import ProductsController from '../controllers/productsController';
+
+
+// //add a product 
+// Router.post('/products', (req,res)=>{  
+//     ProductsController.addProduct(req,res);
+// });
+
+// //Fetch all products 
+// Router.get('/products', (req,res)=>{
+//     ProductsController.fetchAllProducts(req,res);
+// })
+
+// //Fetch a product
+// Router.get('/products/:id', (req,res)=>{
+//     ProductsController.findAProduct(req,res);
+// }) 
+
+// //Update A product  
+// Router.put('/products/:id', (req,res)=>{
+//     ProductsController.UpdateAProduct(req,res);
+// })
+
+// //Delete A product  
+// Router.delete('/products/:id', (req,res)=>{
+//     ProductsController.deleteAProduct(req,res);
+// })
+
+// module.exports = Router;

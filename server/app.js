@@ -25,9 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //define routes 
-app.get('/', (req,res) => {
-    res.json( {name:'chioma', role:'backend engineer'} )
-})
+app.get("/", (req, res) => res.json({message: "Welcome to Store Manager!"}));
 
 app.use('/api/v1', productsRoute);
 app.use('/api/v1', salesRoute);
@@ -40,8 +38,8 @@ app.listen(PORT, () => {
     console.log(`server is listening for requests at port ${PORT}`);
 })
 
-module.exports = app //for testing 
-
+//module.exports = app //for testing 
+export default app;
 
 
 

@@ -1,33 +1,43 @@
-
-let sales = {}
-let sale_id = 1;
+const sales = []
 //Sales will be an array of Sales objects
 
-module.exports = {
+class SalesController {
 
     //Get all Sales Record  
-    fetchAllSales: (req,res) => {
-        res.json(sales);
-    },
+    static fetchAllSales (req,res){ 
+        return res.status(200)
+        .json({
+            status: 'Success',
+            sales,
+        });
+    }
 
-
-    //Add a Sale Record to the sales hash 
-    addSale: (req,res) => {        
-        req.body.id = sale_id;
-        let saleId = sale_id++; 
-        sales[saleId] = req.body;         
-
-    },
     
+
+    //Add a Sale Record to the sales hash
+    static addSale (req,res) {
+        const sale = {};
+        const saleId = sales.length + 1;
+        sale.id = saleId;
+        sale.name = req.body.name;
+        sale.price = req.body.price;
+        sale.item = req.body.item;
+        sales.push(sale);
+        res.status(200).json({
+            message: 'New Sales record successfully Created!',
+             status: 'Success',
+              sale: sales[saleId - 1],
+            });
+    }
     //Find a Sale Record from the sales hash using the saleId
-    findASale: (req,res) => {
+      static findASale(req,res){
 
         let saleId = req.params.id; 
-        if( sales[saleId]){
-            res.json( sales[saleId]);
+        if(sales[saleId  -1]){
+            return res.status(200).json(sales[saleId - 1]);
         }
 
-        res.json({
+        return res.status(404).json({
             message:` There is no sale record with the id of ${saleId}`,
             error:true
         })
@@ -35,3 +45,9 @@ module.exports = {
  
    
 }
+
+export default SalesController;
+
+
+
+ 

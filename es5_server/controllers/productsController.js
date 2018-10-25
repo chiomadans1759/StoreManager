@@ -1,67 +1,113 @@
 'use strict';
 
-var products = {};
-var product_id = 1;
-//products will be an array of product objects
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-module.exports = {
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    //Get all products from the products hash  
-    fetchAllProducts: function fetchAllProducts(req, res) {
-        res.json(products);
-    },
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    //Add a product to the products hash 
-    addProduct: function addProduct(req, res) {
+var products = [];
+//Products will be an array of Products objects
 
-        req.body.id = product_id;
-        var productId = product_id++;
-
-        products[productId] = req.body;
-
-        res.json({ data: products, status: 'success' }, 200);
-    },
-
-    //Find a product from the products hash using the productId
-    findAProduct: function findAProduct(req, res) {
-
-        var productId = req.params.id;
-        if (products[productId]) {
-            res.json(products[productId]);
-        }
-
-        res.json({
-            message: ' There is no product with the id of ' + productId,
-            error: true
-        });
-    },
-
-    //Update a product in the products hash 
-    UpdateAProduct: function UpdateAProduct(req, res) {
-
-        var productId = req.params.id;
-        if (products[productId]) {
-            res.send(products[productId]);
-        }
-
-        res.send({
-            message: 'product not found having the id of ' + productId,
-            error: true
-        });
-    },
-    //Delete a product from the products hash using the productId
-    deleteAProduct: function deleteAProduct(req, res) {
-        var productId = req.params.id;
-        if (products[productId]) {
-            delete products[productId];
-            res.send('product with the id of ' + productId + ' deleted successfully');
-        }
-
-        res.send({
-
-            message: 'there is no product with id of ' + productId,
-            error: true
-
-        });
+var ProductsController = function () {
+    function ProductsController() {
+        _classCallCheck(this, ProductsController);
     }
-};
+
+    _createClass(ProductsController, null, [{
+        key: 'fetchAllProducts',
+
+
+        //Get all Products 
+        value: function fetchAllProducts(req, res) {
+            return res.status(200).json({
+                status: 'Success',
+                products: products
+            });
+        }
+
+        //Add a Products to the products hash 
+
+    }, {
+        key: 'addProduct',
+        value: function addProduct(req, res) {
+            var product = {};
+            var productId = products.length + 1;
+            product.id = productId;
+            product.name = req.body.name;
+            product.price = req.body.price;
+            product.item = req.body.item;
+            products.push(product);
+            res.status(200).json({
+                message: 'New Product successfully added!',
+                status: 'Success',
+                product: products[productId - 1]
+            });
+        }
+
+        //Find a Sale Record from the sales hash using the saleId
+
+    }, {
+        key: 'findAProduct',
+        value: function findAProduct(req, res) {
+
+            var productId = req.params.id;
+            if (products[productId - 1]) {
+                return res.status(200).json(products[productId - 1]);
+            }
+
+            return res.status(404).json({
+                message: ' There is no product with the id of ' + productId,
+                error: true
+            });
+        }
+    }, {
+        key: 'UpdateAProduct',
+        value: function UpdateAProduct(req, res) {
+
+            var productId = req.params.id;
+            if (products[productId - 1]) {
+                var newProoductDetails = {
+                    id: productId,
+                    name: req.body.name,
+                    price: req.body.price,
+                    item: req.body.item
+                };
+                products[productId - 1] = newProoductDetails;
+                return res.status(200).json({
+                    status: 'Success',
+                    updatedAProduct: products[productId - 1]
+                });
+            }
+
+            return res.status(404).json({
+                message: ' There is no product with the id of ' + productId,
+                error: true
+            });
+        }
+    }, {
+        key: 'deleteAProduct',
+        value: function deleteAProduct(req, res) {
+
+            var productId = req.params.id;
+            if (products[productId - 1]) {
+                products.splice(productId - 1, 1);
+                return res.status(200).json({
+                    status: 'Success',
+                    message: 'product with the id of ' + productId + ' deleted successfully'
+                });
+            }
+
+            return res.status(404).json({
+                message: ' There is no product with the id of ' + productId,
+                error: true
+            });
+        }
+    }]);
+
+    return ProductsController;
+}();
+
+exports.default = ProductsController;

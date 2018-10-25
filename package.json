@@ -4,10 +4,10 @@
   "description": "this is the store api",
   "main": "app.js",
   "scripts": {
-    "test": "mocha es5_server/test --exit 10000",
+    "test": "mocha  --require babel-register server/test --exit",
     "build": "rimraf es5_server/ && babel ./server --out-dir es5_server/ --ignore ./node_modules,./.babelrc,./npm-debug.log --copy-files",
     "start": "node es5_server/app.js",
-    "start:dev": "npm run build && nodemon es5_server/app.js",
+    "start:dev": "nodemon --require babel-register server/app.js",
     "coverage": "nyc --reporter=html --reporter=text --reporter=lcov mocha --reporter spec es5_server/test --exit",
     "coveralls": "npm run coverage -- --report lcovonly && cat coverage/lcov.info | coveralls"
   },
@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "install": "^0.12.2"
