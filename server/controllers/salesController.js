@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator/check'
 const sales = []
 //Sales will be an array of Sales objects
 
@@ -15,20 +16,36 @@ class SalesController {
     
 
     //Add a Sale Record to the sales hash
-    static addSale (req,res) {
+    static addSale (req, res){
         const sale = {};
         const saleId = sales.length + 1;
-        sale.id = saleId;
+        sale.id = saleId; 
         sale.name = req.body.name;
         sale.price = req.body.price;
         sale.item = req.body.item;
-        sales.push(sale);
-        res.status(200).json({
-            message: 'New Sales record successfully Created!',
-             status: 'Success',
-              sale: sales[saleId - 1],
-            });
-    }
+      
+      
+        for (let i = 0; i < sales.length; i++) {
+          
+        } if(req.body.name && req.body.price && req.body.item) {
+          sales.push(sale);
+          res.status(200).json({
+            message: 'New Sales Record successfully added!',
+            status: 'Success',
+            sale: sales[saleId - 1],
+            sale
+          });
+        } 
+        
+        else {
+         const errors = validationResult(req);
+         return res.status(422).json({
+            status: 422,
+            message: 'Please enter all product properties'
+          });
+        }
+      }
+ 
     //Find a Sale Record from the sales hash using the saleId
       static findASale(req,res){
 

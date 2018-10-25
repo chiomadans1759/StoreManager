@@ -1,4 +1,5 @@
-const products =[]
+import { validationResult } from 'express-validator/check'
+const products = []
 //Products will be an array of Products objects
 
 class ProductsController{
@@ -14,33 +15,35 @@ class ProductsController{
 
 
     //Add a Products to the products hash 
-    static addProduct (req,res) {
+    static addProduct (req, res){
         const product = {};
         const productId = products.length + 1;
-        product.id = productId;
+        product.id = productId; 
         product.name = req.body.name;
         product.price = req.body.price;
         product.item = req.body.item;
-        products.push(product);
-        res.status(200).json({
+      
+      
+        for (let i = 0; i < products.length; i++) {
+          
+        } if(req.body.name && req.body.price && req.body.item) {
+          products.push(product);
+          res.status(200).json({
             message: 'New Product successfully added!',
-             status: 'Success',
-              product: products[productId - 1],
-            });
-            req.checkBody("product.name", "Product name must be a text").isAlpha().notEmpty();
-            req.checkBody("product.price", "Product name must be a text").isNumber().notEmpty(); 
-            req.checkBody("product.item", "Product name must be a text").notEmpty(); 
-            
-                let errors = req.validationErrors();
-                if (errors) {
-                    res.send(errors);
-                    return;
-                } else {
-                    // normal processing here
-                }
-    }
-    
-   
+            status: 'Success',
+            product: products[productId - 1],
+            product
+          });
+        } 
+        
+        else {
+         const errors = validationResult(req);
+         return res.status(422).json({
+            status: 422,
+            message: 'Please enter all product properties'
+          });
+        }
+      }
     //Find a Sale Record from the sales hash using the saleId
     static findAProduct(req,res){
 

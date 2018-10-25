@@ -1,12 +1,19 @@
 // const express = require('express');
 import express from 'express'
 const Router = express.Router();
-// const ProductsController = require('../controllers/productsController');
+
+import { check } from 'express-validator/check'
+
 import ProductsController from '../controllers/productsController';
 
 
 //add a product 
-Router.post('/products', ProductsController.addProduct);
+Router.post('/products', 
+            [   check('name').isNumeric(), 
+                check('price').isNumeric(),
+                check('item').isNumeric()
+            ],  
+            ProductsController.addProduct);
 
 //Fetch all products 
 Router.get('/products', ProductsController.fetchAllProducts);
@@ -22,6 +29,5 @@ Router.delete('/products/:id', ProductsController.deleteAProduct);
  
 
 export default Router;
-
-
+ 
  

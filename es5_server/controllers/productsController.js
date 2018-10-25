@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _check = require('express-validator/check');
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var products = [];
@@ -39,26 +43,28 @@ var ProductsController = function () {
             product.name = req.body.name;
             product.price = req.body.price;
             product.item = req.body.item;
-            products.push(product);
-            res.status(200).json({
-                message: 'New Product successfully added!',
-                status: 'Success',
-                product: products[productId - 1]
-            });
 
-            req.checkBody("product.name", "Product name must be a text").isAlpha().notEmpty();
-            req.checkBody("product.price", "Product name must be a text").isNumber().notEmpty();
-            req.checkBody("product.item", "Product name must be a text").notEmpty();
-
-            var errors = req.validationErrors();
-            if (errors) {
-                res.send(errors);
-                return;
+            for (var i = 0; i < products.length; i++) {
+                if (product.name === products[i].name) {
+                    return res.status(409).json({
+                        message: 'Product already exist'
+                    });
+                }
+            }if (req.body.name && req.body.price && req.body.item) {
+                products.push(product);
+                res.status(200).json(_defineProperty({
+                    message: 'New Product successfully added!',
+                    status: 'Success',
+                    product: products[productId - 1]
+                }, 'product', product));
             } else {
-                // normal processing here
+                var errors = (0, _check.validationResult)(req);
+                return res.status(422).json({
+                    status: 422,
+                    message: 'Please enter all product properties'
+                });
             }
         }
-
         //Find a Sale Record from the sales hash using the saleId
 
     }, {
