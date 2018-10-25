@@ -22,7 +22,7 @@ _chai2.default.use(_chaiHttp2.default);
 describe('Add New Product', function () {
     it('It should create a new product', function (done) {
         _chai2.default.request(_app2.default).post('/api/v1/products').end(function (err, res) {
-            res.should.have.status(200);
+            res.should.have.status(422);
             res.body.should.be.a('object');
             done();
         });
@@ -96,7 +96,7 @@ describe('Delete A single Product', function () {
 describe('Add New Sales Record', function () {
     it('It should create a new sales record', function (done) {
         _chai2.default.request(_app2.default).post('/api/v1/sales').end(function (err, res) {
-            res.should.have.status(200);
+            res.should.have.status(422);
             res.body.should.be.a('object');
             done();
         });
