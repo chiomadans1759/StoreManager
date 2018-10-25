@@ -56,14 +56,7 @@ describe('Fetch A single Product', () => {
           .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object'); 
-                console.log(res.body)                 
-               // res.body.should.have.property('id').eql(productId);;
-               // res.body.should.have.property('item');
-                // res.body.should.have.property('name');
-                // res.body.should.have.property('price');
-                // res.body.should.have.property('item');
-                // res.body.should.have.property('name');
-                // res.body.should.have.property('price'); 
+                console.log(res.body)                  
             done();
           });
     });
@@ -96,14 +89,7 @@ describe('Delete A single Product', () => {
           .delete('/api/v1/products/1')
           .end((err, res) => {
                 res.should.have.status(200);
-                res.body.should.be.a('object');                  
-               // res.body.should.have.property('id').eql(productId);;
-               // res.body.should.have.property('item');
-                // res.body.should.have.property('name');
-                // res.body.should.have.property('price');
-                // res.body.should.have.property('item');
-                // res.body.should.have.property('name');
-                // res.body.should.have.property('price'); 
+                res.body.should.be.a('object');    
             done();
           });
     });
