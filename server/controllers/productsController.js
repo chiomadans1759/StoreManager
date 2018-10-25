@@ -25,7 +25,11 @@ class ProductsController{
       
       
         for (let i = 0; i < products.length; i++) {
-          
+          if (product.name === products[i].name) {
+            return res.status(409).json({
+              message: 'Product already exist'
+            });
+          }
         } if(req.body.name && req.body.price && req.body.item) {
           products.push(product);
           res.status(200).json({
