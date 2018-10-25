@@ -12,6 +12,10 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+var _expressValidator = require('express-validator');
+
+var _expressValidator2 = _interopRequireDefault(_expressValidator);
+
 var _products = require('./routes/products');
 
 var _products2 = _interopRequireDefault(_products);
@@ -36,6 +40,7 @@ app.use(function (req, res, next) {
 //use the body parser middleware
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
+app.use((0, _expressValidator2.default)());
 
 //define routes 
 app.get("/", function (req, res) {
