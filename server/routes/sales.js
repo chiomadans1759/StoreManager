@@ -9,9 +9,9 @@ import SalesController from '../controllers/salesController';
 
 //add a Sales Record
 Router.post('/sales', 
-            [   check('name').isString(), 
+            [   check('name').isAlphanumeric(), 
                 check('price').isNumeric(),
-                check('item').isString()
+                check('item').isAlphanumeric()
             ],  
             SalesController.addSale);
 

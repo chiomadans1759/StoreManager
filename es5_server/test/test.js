@@ -31,7 +31,7 @@ describe('Add New Product', function () {
         _chai2.default.request(_app2.default).post('/api/v1/products').send({
             name: 'phone',
             price: 20,
-            item: 2
+            item: 'sneakers'
         }).end(function (err, res) {
             res.body.product.should.have.property('name');
             res.body.product.should.have.property('price');
@@ -68,7 +68,7 @@ describe('Update A single Product', function () {
         _chai2.default.request(_app2.default).put('/api/v1/products/1').send({
             name: 'Bingo',
             price: 50,
-            item: 2
+            item: 'shoe'
         }).end(function (err, res) {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -105,7 +105,7 @@ describe('Add New Sales Record', function () {
         _chai2.default.request(_app2.default).post('/api/v1/sales').send({
             name: 'phone',
             price: 20,
-            item: 2
+            item: "canvas"
         }).end(function (err, res) {
             res.body.sale.should.have.property('name');
             res.body.sale.should.have.property('price');
