@@ -22,7 +22,7 @@ var Router = _express2.default.Router(); // const express = require('express');
 
 
 //add a Sales Record
-Router.post('/sales', [(0, _check.check)('name').isString(), (0, _check.check)('price').isNumeric(), (0, _check.check)('item').isString()], _salesController2.default.addSale);
+Router.post('/sales', [(0, _check.check)('name').isAlpha(), (0, _check.check)('price').isNumeric(), (0, _check.check)('item').isAlpha()], _salesController2.default.addSale);
 
 //Fetch all Sales 
 Router.get('/sales', _salesController2.default.fetchAllSales);

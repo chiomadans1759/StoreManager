@@ -36,10 +36,7 @@ app.use('/api/v1', salesRoute);
 const PORT = process.env.PORT || 9000
 app.listen(PORT, () => {
     console.log(`server is listening for requests at port ${PORT}`);
-})
+});
 
 //module.exports = app //for testing 
 export default app;
-
-
-
