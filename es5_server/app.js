@@ -1,8 +1,12 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
+
+var _dotenv = require('dotenv');
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
 
 var _express = require('express');
 
@@ -20,36 +24,44 @@ var _sales = require('./routes/sales');
 
 var _sales2 = _interopRequireDefault(_sales);
 
+var _users = require('./routes/users');
+
+var _users2 = _interopRequireDefault(_users);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import productRoute from './routes/product';
+
+
+_dotenv2.default.config();
 var app = (0, _express2.default)();
 
-var router = _express2.default.Router();
-
-//to avoid cors issue 
+// const router = express.Router(); 
+// to avoid cors issue
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
-//use the body parser middleware
-app.use(_bodyParser2.default.urlencoded({ extended: true }));
+// use the body parser middleware
+app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use(_bodyParser2.default.json());
 
-//define routes 
-app.get("/", function (req, res) {
-    return res.json({ message: "Welcome to Store Manager!" });
+(0, _users2.default)(app);
+//productRoute(app);
+
+// define routes
+app.get('/', function (req, res) {
+  res.json({ name: 'chioma', role: 'backend engineer' });
 });
 
 app.use('/api/v1', _products2.default);
 app.use('/api/v1', _sales2.default);
 
-//get the port from the process env 
+// get the port from the process env
 var PORT = process.env.PORT || 9000;
 app.listen(PORT, function () {
-    console.log('server is listening for requests at port ' + PORT);
+  console.log('server is listening for requests at port ' + PORT);
 });
-
-//module.exports = app //for testing 
-exports.default = app;
+exports.default = app; // for testing

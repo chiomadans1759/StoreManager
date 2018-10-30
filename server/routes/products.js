@@ -4,8 +4,7 @@ const Router = express.Router();
 
 import { check } from 'express-validator/check'
 
-import ProductsController from '../controllers/productsController';
-
+import ProductsController from '../controllers/productsController'; 
 
 //add a product 
 Router.post('/products', 
