@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import productsRoute from './routes/products';
 import salesRoute from './routes/sales';
 import userRoutes from './routes/users';
-//import productRoute from './routes/product';
+import productRoute from './routes/product';
 
 
  
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 userRoutes(app);
-//productRoute(app);
+productRoute(app);
 
 // define routes
 app.get('/', (req, res) => {
