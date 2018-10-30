@@ -1,39 +1,30 @@
-// import ProductController from '../controllers/productController';
-
-// export default (server) => {
-//     server.post('/product', new ProductController().addProduct);
-// }
- 
-// import ProductValidation from '../middleware/product'; 
-// // const express = require('express');
-// import express from 'express'
-// const Router = express.Router();
-
-// import { check } from 'express-validator/check'
+import ProductController from '../controllers/productController';
+import product from '../middleware/product';
  
 
+import { check } from 'express-validator/check'
+export default (server) => {
+  
+//add a product 
+server.post('/product', 
+            [   check('name').isAlpha(), 
+                check('price').isNumeric(),
+                check('item').isAlpha()
+            ],  
+            product,
+            new ProductController().addProduct);
 
-// //add a product 
-// Router.post('/products', 
-//             [   check('name').isAlpha(), 
-//                 check('price').isNumeric(),
-//                 check('item').isAlpha()
-//             ],  
-//             ProductsController.addProduct);
+//Fetch all products 
+server.get('/product', new ProductController().getAllProducts);
 
-// //Fetch all products 
-// Router.get('/products', ProductsController.fetchAllProducts);
+//Fetch a Single product
+server.get('/product/:id', new ProductController().getAProduct);
 
-// //Fetch a Single product
-// Router.get('/products/:id', ProductsController.findAProduct);
+//Update a Single product
+server.put('/product/:id', new ProductController().updateAProduct);
 
-// //Update a Single product
-// Router.put('/products/:id', ProductsController.UpdateAProduct);
-
-// //Delete a Single product
-// Router.delete('/products/:id', ProductsController.deleteAProduct);
- 
-
-// export default Router;
+//Delete a Single product
+server.delete('/product/:id', new ProductController().DeleteAProduct);
+        };
  
  

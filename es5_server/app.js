@@ -28,10 +28,11 @@ var _users = require('./routes/users');
 
 var _users2 = _interopRequireDefault(_users);
 
+var _product = require('./routes/product');
+
+var _product2 = _interopRequireDefault(_product);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//import productRoute from './routes/product';
-
 
 _dotenv2.default.config();
 var app = (0, _express2.default)();
@@ -49,7 +50,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use(_bodyParser2.default.json());
 
 (0, _users2.default)(app);
-//productRoute(app);
+(0, _product2.default)(app);
 
 // define routes
 app.get('/', function (req, res) {

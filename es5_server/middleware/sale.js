@@ -6,18 +6,20 @@ Object.defineProperty(exports, "__esModule", {
 
 var _check = require('express-validator/check');
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 exports.default = function (req, res, next) {
 
-  var products = [];
-  var product = {};
-  var productId = products.length + 1;
+  var sales = [];
+  var sale = {};
+  var saleId = sales.length + 1;
 
-  product.id = productId;
-  product.item = req.body.item;
-  product.name = req.body.name;
-  product.price = req.body.price;
-  product.quantity = req.body.quantity;
-  product.category = req.body.category;
+  sale.id = saleId;
+  sale.name = req.body.name;
+  sale.price = req.body.price;
+  sale.item = req.body.item;
+  sale.quantity = req.body.quantity;
+  sale.category = req.body.category;
 
   /**
      * Loop through all the required fields, and check for missing fields values
@@ -28,7 +30,6 @@ exports.default = function (req, res, next) {
      */
 
   var errors = (0, _check.validationResult)(req);
-
   if (!errors.isEmpty()) {
     return res.status(422).json({
       status: 'Failed',
@@ -36,18 +37,18 @@ exports.default = function (req, res, next) {
     });
   }
 
-  for (var i = 0; i < products.length; i += 1) {
-    if (product.name === products[i].name) {
+  for (var i = 0; i < sales.length; i++) {
+    if (sale.name === sales[i].name) {
       return res.status(409).json({
-        message: 'A product with name  ' + product.name + ' already exist'
+        message: 'A sales record with name  ' + sale.name + ' already exist'
       });
     }
   }
 
-  products.push(product);
-  return res.status(200).json({
-    message: 'New Product successfully added!',
+  sales.push(sale);
+  return res.status(200).json(_defineProperty({
+    message: 'New Sales Record successfully created!',
     status: 'Success',
-    product: products[productId - 1]
-  });
+    sale: sales[saleId - 1]
+  }, 'sale', sale));
 };

@@ -1,37 +1,35 @@
-// import ProductController from '../controllers/productController';
+'use strict';
 
-// export default (server) => {
-//     server.post('/product', new ProductController().addProduct);
-// }
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-// import ProductValidation from '../middleware/product'; 
-// // const express = require('express');
-// import express from 'express'
-// const Router = express.Router();
+var _productController = require('../controllers/productController');
 
-// import { check } from 'express-validator/check'
+var _productController2 = _interopRequireDefault(_productController);
 
+var _product = require('../middleware/product');
 
-// //add a product 
-// Router.post('/products', 
-//             [   check('name').isAlpha(), 
-//                 check('price').isNumeric(),
-//                 check('item').isAlpha()
-//             ],  
-//             ProductsController.addProduct);
+var _product2 = _interopRequireDefault(_product);
 
-// //Fetch all products 
-// Router.get('/products', ProductsController.fetchAllProducts);
+var _check = require('express-validator/check');
 
-// //Fetch a Single product
-// Router.get('/products/:id', ProductsController.findAProduct);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// //Update a Single product
-// Router.put('/products/:id', ProductsController.UpdateAProduct);
+exports.default = function (server) {
 
-// //Delete a Single product
-// Router.delete('/products/:id', ProductsController.deleteAProduct);
+    //add a product 
+    server.post('/product', [(0, _check.check)('name').isAlpha(), (0, _check.check)('price').isNumeric(), (0, _check.check)('item').isAlpha()], _product2.default, new _productController2.default().addProduct);
 
+    //Fetch all products 
+    server.get('/product', new _productController2.default().getAllProducts);
 
-// export default Router;
-"use strict";
+    //Fetch a Single product
+    server.get('/product/:id', new _productController2.default().getAProduct);
+
+    //Update a Single product
+    server.put('/product/:id', new _productController2.default().updateAProduct);
+
+    //Delete a Single product
+    server.delete('/product/:id', new _productController2.default().DeleteAProduct);
+};
