@@ -31,6 +31,15 @@ button {
     cursor: pointer;
     width: 100%;
 }
+table #inputProduct input[type=text] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 3%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color:#a13b00;
+}
 
 button:hover {
     opacity: 0.8;
@@ -127,7 +136,7 @@ span.password {
 
 /* Change styles for span and cancel button on extra small screens */
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
 
@@ -282,7 +291,8 @@ span.password {
 }
  
 .main h3 {  
-    font-size: 1em;    
+    font-size: 1em;
+    padding-left:50px;   
 }
 .attendantHeader{
     background-color:#491d03;
@@ -306,7 +316,7 @@ span.password {
 
 /*Make the Dashboard Page Responsive*/
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
 
@@ -511,18 +521,46 @@ and (-webkit-min-device-pixel-ratio: 1) {
   .grid-container a { 
     text-decoration:none;
   }
+
+/*Responsiveness of the grid-container*/
+@media only screen  
+and (max-width: 400px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+   
+       
+      .grid-container > div { 
+        font-size: .7em;
+        height:auto; 
+        border-radius: 10px;
+        padding-left:0;
+        padding:0; 
+        text-align:center;
+        grid-auto-columns: max-content; 
+      }
+      .grid-container h3 { 
+        padding:0 0 10px 0;
+        text-align:center;
+        margin:0; 
+      }
+}
+
 /*Make the dashboard grid Responsive*/
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
     
     .grid-container { 
-        width:auto%;  
-        margin-top:8%;
+        width:90%;  
+        margin-top:8%; 
+      }
+      .grid-container h3 { 
+        padding:0 0 10px 0;
+        text-align:center;
+        margin:0; 
       }
       .grid-container > div { 
-        font-size: 1em;
+        font-size: .7em;
         height:auto; 
         border-radius: 10px;
         padding:5% 10%;
@@ -537,8 +575,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
   .grid-inventory {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
-    background-color:rgb(228, 227, 227);
+    grid-gap: 10px; 
     padding:0px;
     margin-left:60px;
     margin-bottom:60px;
@@ -568,7 +605,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
     font-weight: 300;
   }
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
     .main h3 {  
@@ -664,7 +701,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
     height:100%;}
  /*Products Media Queries design*/
  @media only screen 
- and (min-width:400px) 
+ and (min-width:300px) 
  and (max-width: 780px) 
  and (-webkit-min-device-pixel-ratio: 1) {
     .table {  
@@ -681,6 +718,10 @@ and (-webkit-min-device-pixel-ratio: 1) {
         padding:3% 0;
         margin:0;
         height:auto;
+    }
+    .table tr p{ display:none;
+    }
+    .table tr h4{ font-size:.8em;
     }
     
     .table td{ 
@@ -725,7 +766,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
 
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
   
@@ -823,7 +864,7 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media only screen 
-and (min-width:400px) 
+and (min-width:300px) 
 and (max-width: 780px) 
 and (-webkit-min-device-pixel-ratio: 1) {
 
