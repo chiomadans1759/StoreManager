@@ -25,9 +25,7 @@
     "express-validator": "^5.3.0",
     "install": "^0.12.2",
     "jsonwebtoken": "^8.3.0",
-    "pg": "^7.4.3"
-  },
-  "devDependencies": {
+    "pg": "^7.4.3",
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
@@ -42,5 +40,5 @@
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
     "rimraf": "^2.6.2"
-  }
+  } 
 }
