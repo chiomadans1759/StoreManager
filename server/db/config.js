@@ -1,13 +1,15 @@
+import { Pool } from 'pg';
 import dotEnv from 'dotenv';
 
 dotEnv.config();
 
-const databaseConfig = {};
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({
+ connectionString
+});
 
+pool.on('connect', () => {
+  console.log('connected to the database');
+})
 
-databaseConfig.development = {
-  connectionString: 'postgresql://postgres:admin@localhost:5433/store-manager',
-};
-
-
-export default databaseConfig;
+export default pool;

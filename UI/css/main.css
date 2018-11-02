@@ -21,6 +21,9 @@ input[type=text], input[type=password] {
     color:#a13b00;
 }
 
+#inputProduct{
+    width: 50%;  
+} 
 /* Set a style for all buttons */
 button {
     background-color: #a13b00;
@@ -30,6 +33,15 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+}
+table #inputProduct input[type=text] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 3%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color:#a13b00;
 }
 
 button:hover {
@@ -512,6 +524,29 @@ and (-webkit-min-device-pixel-ratio: 1) {
   .grid-container a { 
     text-decoration:none;
   }
+
+/*Responsiveness of the grid-container*/
+@media only screen  
+and (max-width: 400px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+   
+       
+      .grid-container > div { 
+        font-size: .7em;
+        height:auto; 
+        border-radius: 10px;
+        padding-left:0;
+        padding:0; 
+        text-align:center;
+        grid-auto-columns: max-content; 
+      }
+      .grid-container h3 { 
+        padding:0 0 10px 0;
+        text-align:center;
+        margin:0; 
+      }
+}
+
 /*Make the dashboard grid Responsive*/
 @media only screen 
 and (min-width:300px) 
@@ -519,11 +554,16 @@ and (max-width: 780px)
 and (-webkit-min-device-pixel-ratio: 1) {
     
     .grid-container { 
-        width:auto%;  
-        margin-top:8%;
+        width:90%;  
+        margin-top:8%; 
+      }
+      .grid-container h3 { 
+        padding:0 0 10px 0;
+        text-align:center;
+        margin:0; 
       }
       .grid-container > div { 
-        font-size: 1em;
+        font-size: .7em;
         height:auto; 
         border-radius: 10px;
         padding:5% 10%;
@@ -674,13 +714,16 @@ and (-webkit-min-device-pixel-ratio: 1) {
         bottom:0;
         padding:0; 
     } 
-   
-     
+    
     .table th{ 
         font-size:.6em;
         padding:3% 0;
         margin:0;
         height:auto;
+    }
+    .table tr p{ display:none;
+    }
+    .table tr h4{ font-size:.8em;
     }
     
     .table td{ 
@@ -731,7 +774,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
   
     .print{ 
         font-size:.5em;          
-        float:right;   
+        float: right;   
         display:inline-block;
         margin:0 0 10px 0;
       }
@@ -747,10 +790,11 @@ input[type=text], select {
 }
 
 input[type=date] {
-    width: 97%;
+    width: 94%;
     padding: 12px 12px 12px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin:0;
     resize: vertical;
 }
 

@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import bodyParser from 'body-parser';
-import productsRoute from './routes/products';
-import salesRoute from './routes/sales';
+import bodyParser from 'body-parser';    
+ 
 import userRoutes from './routes/users';
 import productRoute from './routes/product';
+import saleRoute from './routes/sale';
 
-
+ 
  
 
 
@@ -26,16 +26,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 userRoutes(app);
-productRoute(app);
+productRoute(app); 
+saleRoute(app);
 
 // define routes
 app.get('/', (req, res) => {
   res.json({ name: 'chioma', role: 'backend engineer' });
 });
-
-app.use('/api/v1', productsRoute);
-app.use('/api/v1', salesRoute);
-
+ 
 
 // get the port from the process env
 const PORT = process.env.PORT || 9000;

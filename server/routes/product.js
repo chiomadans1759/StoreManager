@@ -1,30 +1,23 @@
-import ProductController from '../controllers/productController';
-import product from '../middleware/product';
- 
+import ProductController from '../controllers/productController'; 
+import validateProduct from '../middleware/productValidation'; 
+import auth from '../middleware/OAuth';
 
-import { check } from 'express-validator/check'
 export default (server) => {
   
 //add a product 
-server.post('/product', 
-            [   check('name').isAlpha(), 
-                check('price').isNumeric(),
-                check('item').isAlpha()
-            ],  
-            product,
-            new ProductController().addProduct);
+server.post('/api/v1/products', auth.verifyUserToken, validateProduct, new ProductController().addProduct);
 
 //Fetch all products 
-server.get('/product', new ProductController().getAllProducts);
+server.get('/api/v1/products', new ProductController().getAllProducts);
 
 //Fetch a Single product
-server.get('/product/:id', new ProductController().getAProduct);
+server.get('/api/v1/products/:id', new ProductController().getAProduct);
 
 //Update a Single product
-server.put('/product/:id', new ProductController().updateAProduct);
+server.put('/api/v1/products/:id', auth.verifyUserToken, new ProductController().updateAProduct);
 
 //Delete a Single product
-server.delete('/product/:id', new ProductController().DeleteAProduct);
+server.delete('/api/v1/products/:id', auth.verifyUserToken, new ProductController().DeleteAProduct);
         };
  
  
