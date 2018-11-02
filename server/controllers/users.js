@@ -8,12 +8,14 @@ export default class UserController {
   /* Adds a new user */
   addUser(req, res) {
     db.connect((error, client) => {
+
       if (error) { throw error }
       const hash = bcrypt.hashSync(req.body.password, 10);
       const query = {
         text: 'insert into users (username, email, password, role) values ($1, $2, $3, $4) returning id, username, email, password, role',
         values: [req.body.username, req.body.email, hash, req.body.role]
       };
+      console.log('here')
 
       return client.query(query, (error3, res3) => {
         if (error3) {

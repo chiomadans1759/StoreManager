@@ -8,7 +8,7 @@ export default (req, res, next) => {
     const required = ['email', 'password'];
     let errors = {};
     for (let i = 0; i < required.length; i += 1) {
-        if (!values[required[i]]) { pass = false; errors[required[i]] = `${required[i]} is required`; }
+        if (!values[required[i]]) { pass = false; errors[required[i]] = `${required[i]} is required!`; }
     }
     if(values.email && (!values.email.replace(/\s/g, '').length || !emailFilter.test(values.email))) {
         errors.email = 'Email can not be blank or format is wrong'; pass = false;
