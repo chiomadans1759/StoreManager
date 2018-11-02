@@ -1,6 +1,6 @@
 import SaleController from '../controllers/saleController'; 
 import validateSale from '../middleware/saleValidation';
-import auth from '../middleware/Oauth'; 
+import auth from '../middleware/oauth'; 
 export default (server) => {
   
 //Create a new sales record
