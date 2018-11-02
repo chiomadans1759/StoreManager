@@ -2,7 +2,7 @@ import UserController from '../controllers/users';
 // import { authenticate, verifyAdmin, verifyAttendant } from '../middleware/verify';
 import validateUserInput from '../middleware/validateUserInput'; 
 import validateLogin from '../middleware/validateLogin';
-import auth from '../middleware/Oauth';
+import auth from '../middleware/oauth';
 
 /* Users Router */
 export default (server) => {
