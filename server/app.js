@@ -31,7 +31,7 @@ saleRoute(app);
 
 // define routes
 app.get('/', (req, res) => {
-  res.json({ name: 'chioma', role: 'backend engineer' });
+  res.json({ Message: 'Welcome! This is the Store Manager home page'});
 });
  
 
