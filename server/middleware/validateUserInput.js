@@ -1,14 +1,14 @@
+import db from '../db/config';
 export default (req, res, next) => {
+  
   // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-  const emailFilter = /^([a-zA-Z0-9_\s.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+  const emailFilter = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   if (req.body.email) req.body.email = req.body.email.trim();
   const values = req.body;
-  const required = ['id', 'name', 'email'];
+  const required = ['username', 'email', 'password', 'role'];
   const errors = {};
   let pass = true;
-
- //get this dummy data values from the databas
-  const email = 'jane.doe@mail.com';
+  const email = emailFilter.test(req.body.email);
 
   /**
    * Loop through all the required fields, and check for missing fields values
@@ -23,40 +23,28 @@ export default (req, res, next) => {
       pass = false;
     }
   }
-  if (values.email === email) {
-    errors.email = `Email ${email} aready exist`;
-    res.status(409).json({
-      error: errors
+
+    
+  db.connect((err, client) => {
+    const query = {
+      text: 'select * from users where email = $1',
+      values: [req.params.email],
+    };
+    client.query(query, (err, result) => {
+      if (err) res.status(400).json({ message: 'User already exists added!'});
+      if (result.rowCount < 1) {
+        return res.status(200).json({ success: result.rows[0] });
+      }
     });
-    pass = false;
-    return false;
-  }
-  if (values.name && !values.name.replace(/\s/g, '').length) {
-    errors.name = 'Name field can not be blank';
-    pass = false;
-  }
-  /**
-     * Check to see that name is not blanck
-     * @param {string} name - User's name {meeky}
-     */
-  if (values.name && !values.name.replace(/\s/g, '').length) {
-    errors.name = 'name field can not be blank';
+  });
+ 
+  if (values.username && !values.username.replace(/\s/g, '').length) {
+    errors.username = 'Username field can not be blank';
     pass = false;
   }
-  /**
-     * Check to see that email is not blanck
-     * @param {string} email - User's email {meeky.ae@gmail.com}
-     */
-  if (values.email && !values.email.replace(/\s/g, '').length) {
-    errors.email = 'Email field can not be blank';
-    pass = false;
-  }
-  /**
-     * Check to see that email format is correct
-     * @param {string} email - User's email {meeky.ae@gmail.com}
-     */
+ 
   if (values.email && !emailFilter.test(String(values.email).toLowerCase())) {
-    errors.email = 'Invalid email';
+    errors.email = 'Invalid email. Check and try again!';
     pass = false;
   }
   /**
@@ -67,9 +55,10 @@ export default (req, res, next) => {
       error: errors
     });
   } else {
-    req.body.id = req.body.id.toString().trim()
-    req.body.name = req.body.name.toString().trim();
+    req.body.username = req.body.username.toString().trim();
     req.body.email = req.body.email.trim();
+    req.body.password = req.body.password;
+    req.body.role = req.body.role;
     next();
   }
 };
