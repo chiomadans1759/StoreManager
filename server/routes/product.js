@@ -1,6 +1,6 @@
 import ProductController from '../controllers/productController'; 
 import validateProduct from '../middleware/productValidation'; 
-import auth from '../middleware/OAuth';
+import auth from '../middleware/Oauth';
 
 export default (server) => {
   
