@@ -53,12 +53,3 @@ const auth = {
 };
 
 export default auth;
-
-// decoded : {
-//   payload: {
-//     id
-//     email
-//     role
-//   },
-//   error:
-// }
