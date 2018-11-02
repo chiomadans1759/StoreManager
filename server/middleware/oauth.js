@@ -26,6 +26,7 @@ const auth = {
 
   verifyUserToken(req, res, next) {
     const token = req.headers['x-access-token'];
+     
     if (!token) {
       return res.status(401).json({ error: 'No token provided.' });
     }
@@ -34,12 +35,13 @@ const auth = {
       return res.status(500).json({ error: 'Failed to authenticate token.' });
     }
     const query = {
-      text: 'select * from users where id = $1 LIMIT 1', values: [decoded.payload.id],
-    };
+      text: 'select * from users where id = $1 LIMIT 1', values: [decoded.payload.id]
+    }
     if (req.params.id && isNaN(parseInt(req.params.id))) {
          return res.status(400).json({ error: 'The id provided must be an integer' });
     }
     db.query(query, (error2, response) => {
+      
       if (error2) {
         return res.status(500).json({error: 'Something went wrong with the process, Please try later'});
       } else {
